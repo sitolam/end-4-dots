@@ -422,7 +422,7 @@ in
           "float,title:^(Save As)(.*)$"
           "float,title:^(Select a File)(.*)$"
           ''
-          immediate,.*\.exe
+          immediate,title:.*\.exe
           ''
         ];
         windowrulev2 = [
