@@ -90,9 +90,6 @@ in
           gaps_workspaces = 50;
           border_size = 1;
           
-          # Fallback colors
-          "col.active_border" = "rgba(0DB7D4FF)";
-          "col.inactive_border" = "rgba(31313600)";
 
           resize_on_border = true;
           no_focus_fallback = true;
