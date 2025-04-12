@@ -15,7 +15,7 @@ in
         };
         
         colors = {
-          background = "1D1011ff";
+          # background = "1D1011ff";
           text = "F7DCDEff";
           selection = "574144ff";
           selection-text = "DEBFC2ff";
