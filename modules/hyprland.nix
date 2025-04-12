@@ -90,6 +90,9 @@ in
           gaps_workspaces = 50;
           border_size = 1;
           
+          # Fallback colors
+          # "col.active_border" = "rgba(0DB7D4FF)";
+          # "col.inactive_border" = "rgba(31313600)";
 
           resize_on_border = true;
           no_focus_fallback = true;
@@ -152,6 +155,7 @@ in
             enabled = true;
             range = 30;
             render_power = 3;
+            color = "0x66000000";
           };
         };
         animations = {
@@ -504,6 +508,11 @@ in
         name = "Adwaita";
       };
     };
+    # qt = {
+    #   enable = true;
+    #   platformTheme.name = "qt5ct";
+    #   style.name = "kvantum";
+    # };
 
     home.file.".config/Kvantum" = {
       source = "${selfPkgs.illogical-impulse-kvantum}";
