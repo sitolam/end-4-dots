@@ -508,11 +508,6 @@ in
         name = "Adwaita";
       };
     };
-    qt = {
-      enable = true;
-      platformTheme.name = "qt5ct";
-      style.name = "kvantum";
-    };
 
     home.file.".config/Kvantum" = {
       source = "${selfPkgs.illogical-impulse-kvantum}";
