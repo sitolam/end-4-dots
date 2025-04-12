@@ -7,7 +7,7 @@ in
     programs.kitty = {
       enable = true;
       font = {
-        name = "SpaceMono Nerd Font";
+        # name = "SpaceMono Nerd Font";
         size = 12;
       };
       settings = {
