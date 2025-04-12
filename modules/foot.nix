@@ -11,7 +11,7 @@ in
           shell = "zsh";
           term = "xterm-256color";
           title = "foot";
-          font = "SpaceMono Nerd Font:size=11";
+          # font = "SpaceMono Nerd Font:size=11";
           letter-spacing = 0;
           dpi-aware = "no";
           pad = "25x25";
