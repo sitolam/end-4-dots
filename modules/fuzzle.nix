@@ -8,7 +8,7 @@ in
       enable = true;
       settings = {
         main = {
-          font = "Gabarito";
+          # font = "Gabarito";
           terminal = "foot -e";
           prompt = ">>  ";
           layer = "overlay";
