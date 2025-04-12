@@ -155,7 +155,6 @@ in
             enabled = true;
             range = 30;
             render_power = 3;
-            color = "0x66000000";
           };
         };
         animations = {
