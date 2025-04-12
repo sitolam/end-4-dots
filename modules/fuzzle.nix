@@ -20,7 +20,7 @@ in
           selection = "574144ff";
           selection-text = "DEBFC2ff";
           # border = "574144dd";
-          match = "FFB2BCff";
+          # match = "FFB2BCff";
           selection-match = "FFB2BCff";
         };
         
