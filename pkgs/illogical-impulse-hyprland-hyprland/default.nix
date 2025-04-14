@@ -5,7 +5,7 @@ stdenv.mkDerivation {
   version = "latest";
 
   src = fetchFromGitHub {
-    owner = "sitolam";
+    owner = "end-4";
     repo = "dots-hyprland";
     rev = "a8004a32ea2aa0c4135926cde42886246dfb1634";
     sha256 = "sha256-uJzo/VCY7mXl0RMcQ0Y3zS7ZVnHDcWkDClRikwgM29w=";
