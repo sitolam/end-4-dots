@@ -5,10 +5,10 @@ stdenv.mkDerivation {
   version = "latest";
 
   src = fetchFromGitHub {
-    owner = "bigsaltyfishes";
+    owner = "end-4";
     repo = "dots-hyprland";
-    rev = "6ce7d07b5b0d26afff64002341fbfcfde0e02369";
-    sha256 = "sha256-yJf/B7ZT3Y9Is7xMoVnvZZl/qBWxn7BLpz9Ab6v7Hys=";
+    rev = "742d84ee866faa26d7c742fc1be8db943bd97bb9";
+    sha256 = "sha256-YrMzmM9r7cL3Ks6/Rd8/nyBG6CYyFh79Cyeni8Iof10=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
