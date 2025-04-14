@@ -12,7 +12,7 @@ services.udisks2.enable = true;
 
 To use dotfiles, add this flake into your inputs:
 ```nix
-illogical-impulse.url = "github:bigsaltyfishes/end-4-dots";
+illogical-impulse.url = "github:sitolam/end-4-dots";
 illogical-impulse.inputs.nixpkgs.follows = "nixpkgs";
 ```
 
