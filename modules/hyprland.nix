@@ -46,6 +46,11 @@ in
       text = "";
     };
 
+
+    home.file.".config/hypr/hyprland/.keep" = {
+      text = "";
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;
