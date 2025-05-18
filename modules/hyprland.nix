@@ -42,10 +42,6 @@ in
       source = "${selfPkgs.illogical-impulse-hyprland-shaders}";
     };
 
-    home.file.".config/hypr/hyprland/.keep" = {
-      text = "";
-    };
-
 
     home.file.".config/hypr/hyprland/.keep" = {
       text = "";
