@@ -57,7 +57,7 @@ in
         env = [
           "GIO_EXTRA_MODULES, ${pkgs.gvfs}/lib/gio/modules:$GIO_EXTRA_MODULES"
           "QT_QPA_PLATFORM, wayland"
-          "QT_QPA_PLATFORMTHEME, qt5ct"
+          "QT_QPA_PLATFORMTHEME, qt6ct"
         ] ++ (lib.optionals hyprlandConf.ozoneWayland.enable [
           "NIXOS_OZONE_WL, 1"
         ]);
@@ -186,7 +186,7 @@ in
             "layersIn, 1, 3, menu_decel, slide"
             "layersOut, 1, 1.6, menu_accel"
             "fadeLayersIn, 1, 2, menu_decel"
-            "fadeLayersOut, 1, 4.5, menu_accel"
+            "fadeLayersOut, 1, 0.5, menu_accel"
             "workspaces, 1, 7, menu_decel, slide"
             # "workspaces, 1, 2.5, softAcDecel, slide"
             # "workspaces, 1, 7, menu_decel, slidefade 15%"
@@ -213,29 +213,31 @@ in
             "Alt, Tab, bringactivetotop, "
             "Alt, Tab, cyclenext"
             ''
-            Ctrl+Alt, Delete, exec, for ((i=0; i<$(hyprctl monitors -j | jq length); i++)); do ags -t"session""$i"; done
+            Ctrl+Alt, Delete, exec, for ((i=0; i<$(hyprctl monitors -j | jq length); i++)); do ags -t "session""$i"; done
             ''
             "Ctrl+Alt, R, exec, ~/.config/ags/scripts/record-script.sh --fullscreen"
             "Ctrl+Alt, Slash, exec, ags run-js 'cycleMode();'"
             "Ctrl+Shift+Alt, Delete, exec, pkill wlogout || wlogout -p layer-shell"
             "Ctrl+Shift+Alt+Super, Delete, exec, systemctl poweroff || loginctl poweroff"
             "Ctrl+Shift, Escape, exec, gnome-system-monitor"
+            "Ctrl+Super+Alt, Left, workspace, m-1"
+            "Ctrl+Super+Alt, Right, workspace, m+1"
             "Ctrl+Super, Backslash, resizeactive, exact 640 480"
             "Ctrl+Super, BracketLeft, workspace, -1"
             "Ctrl+Super, BracketRight, workspace, +1"
-            "Ctrl+Super, Down, workspace, +5"
+            "Ctrl+Super, Down, workspace, r+5"
             ''
             Ctrl+Super, G, exec, for ((i=0; i<$(hyprctl monitors -j | jq length); i++)); do ags -t"crosshair""$i"; done
             ''
-            "Ctrl+Super, Left, workspace, -1"
+            "Ctrl+Super, Left, workspace, r-1"
             "Ctrl+Super, L, exec, ags run-js 'lock.lock()'"
-            "Ctrl+Super, mouse_down, workspace, -1"
-            "Ctrl+Super, mouse_up, workspace, +1"
-            "Ctrl+Super, Page_Down, workspace, +1"
-            "Ctrl+Super, Page_Up, workspace, -1"
-            "Ctrl+Super, Right, workspace, +1"
-            "Ctrl+Super+Shift, Left, movetoworkspace, -1"
-            "Ctrl+Super+Shift, Right, movetoworkspace, +1"
+            "Ctrl+Super, mouse_down, workspace, r-1"
+            "Ctrl+Super, mouse_up, workspace, r+1"
+            "Ctrl+Super, Page_Down, workspace, r+1"
+            "Ctrl+Super, Page_Up, workspace, r-1"
+            "Ctrl+Super, Right, workspace, r+1"
+            "Ctrl+Super+Shift, Left, movetoworkspace, r-1"
+            "Ctrl+Super+Shift, Right, movetoworkspace, r+1"
             ''
             Ctrl+Super+Shift,S,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"
             ''
@@ -244,7 +246,7 @@ in
             "Ctrl+Super, Slash, exec, pkill anyrun || anyrun"
             "Ctrl+Super, S, togglespecialworkspace, "
             "Ctrl+Super, T, exec, ~/.config/ags/scripts/color_generation/switchwall.sh"
-            "Ctrl+Super, Up, workspace, -5"
+            "Ctrl+Super, Up, workspace, r-5"
             "Ctrl+Super, V, exec, pavucontrol"
             "Ctrl+Super, W, exec, firefox"
             "Super, 0, exec, ~/.config/ags/scripts/hyprland/workspace_action.sh workspace 10"
@@ -270,10 +272,10 @@ in
             "Super+Alt, 9, exec, ~/.config/ags/scripts/hyprland/workspace_action.sh movetoworkspacesilent 9"
             "Super+Alt, E, exec, thunar"
             ''
-            Super+Alt, Equal, exec, notify-send"Urgent notification""Ah hell no" -u critical -a 'Hyprland keybind'
+            Super+Alt, Equal, exec, notify-send "Urgent notification" "Ah hell no" -u critical -a 'Hyprland keybind'
             ''
             ''
-            Super+Alt, f12, exec, notify-send 'Test notification'"Here's a really long message to test truncation and wrapping\nYou can middle click or flick this notification to dismiss it!" -a 'Shell' -A"Test1=I got it!" -A"Test2=Another action" -t 5000
+            Super+Alt, f12, exec, notify-send 'Test notification' "Here's a really long message to test truncation and wrapping\nYou can middle click or flick this notification to dismiss it!" -a 'Shell' -A "Test1=I got it!" -A "Test2=Another action" -t 5000
             ''
             "Super+Alt, F, fullscreenstate, 0 3"
             "Super+Alt, mouse_down, movetoworkspace, -1"
@@ -281,7 +283,7 @@ in
             "Super+Alt, Page_Down, movetoworkspace, +1"
             "Super+Alt, Page_Up, movetoworkspace, -1"
             "Super+Alt, R, exec, ~/.config/ags/scripts/record-script.sh"
-            "Super+Alt, Slash, exec, pkill anyrun || fuzzel"
+            "Super+Alt, Slash, exec, pkill fuzzel || fuzzel"
             "Super+Alt, S, movetoworkspacesilent, special"
             "Super+Alt, Space, togglefloating, "
             "Super, B, exec, ags -t 'sideleft'"
@@ -298,7 +300,7 @@ in
             Super, I, exec, XDG_CURRENT_DESKTOP="gnome" gnome-control-center
             ''
             ''
-            Super, K, exec, for ((i=0; i<$(hyprctl monitors -j | jq length); i++)); do ags -t"osk""$i"; done
+            Super, K, exec, for ((i=0; i<$(hyprctl monitors -j | jq length); i++)); do ags -t "osk""$i"; done
             ''
             "Super, Left, movefocus, l"
             "Super, L, exec, loginctl lock-session"
@@ -315,9 +317,10 @@ in
             "Super, Q, killactive, "
             "Super, Return, exec, kitty"
             "Super, Right, movefocus, r"
+            "Super+Shift+Alt, mouse:273, exec, ~/.config/ags/scripts/ai/primary-buffer-query.sh"
             "Super+Shift+Alt, mouse:275, exec, playerctl previous"
             ''
-            Super+Shift+Alt, mouse:276, exec, playerctl next || playerctl position `bc <<<"100 * $(playerctl metadata mpris:length) / 1000000 / 100"`
+            Super+Shift+Alt, mouse:276, exec, playerctl next || playerctl position `bc <<< "100 * $(playerctl metadata mpris:length) / 1000000 / 100"`
             ''
             "Super+Shift+Alt, Q, exec, hyprctl kill"
             "Super+Shift+Alt, R, exec, ~/.config/ags/scripts/record-script.sh --fullscreen-sound"
@@ -328,10 +331,10 @@ in
             "Super+Shift, Down, movewindow, d"
             "Super+Shift, Left, movewindow, l"
             "Super+Shift, L, exec, loginctl lock-session"
-            "Super+Shift, mouse_down, movetoworkspace, -1"
-            "Super+Shift, mouse_up, movetoworkspace, +1"
-            "Super+Shift, Page_Down, movetoworkspace, +1 "
-            "Super+Shift, Page_Up, movetoworkspace, -1 "
+            "Super+Shift, mouse_down, movetoworkspace, r-1"
+            "Super+Shift, mouse_up, movetoworkspace, r+1"
+            "Super+Shift, Page_Down, movetoworkspace, r+1 "
+            "Super+Shift, Page_Up, movetoworkspace, r-1 "
             "Super+Shift, Right, movewindow, r"
             "Super+Shift, S, exec, ~/.config/ags/scripts/grimblast.sh --freeze copy area"
             ''
@@ -348,7 +351,7 @@ in
             "Super, T, exec, kitty"
             "Super, Up, movefocus, u"
             "Super, V, exec, pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu | cliphist decode | wl-copy"
-            "Super, W, exec, google-chrome-stable"
+            "Super, W, exec, google-chrome-stable || firefox"
             "Super, X, exec, gnome-text-editor --new-window"
             "Super, Z, exec, Zed"
           ];
@@ -403,57 +406,85 @@ in
           "Ctrl+Super+Alt, R, exec, hyprctl reload; killall ags ydotool; ags &"
           "Ctrl+Super, R, exec, killall ags ydotool; ags &"
         ];
-        windowrule = [
-          "center, title:^(Choose wallpaper)(.*)$"
-          "center, title:^(File Upload)(.*)$"
-          "center, title:^(Library)(.*)$"
-          "center, title:^(Open File)(.*)$"
-          "center, title:^(Open Folder)(.*)$"
-          "center, title:^(Save As)(.*)$"
-          "center, title:^(Select a File)(.*)$"
-          "float,title:^(blueberry.py)$"
-          "float,title:^(guifetch)$ "
-          "float,title:^(steam)$"
-          "float,title:^(Choose wallpaper)(.*)$"
-          "float,title:^(File Upload)(.*)$"
-          "float,title:^(Library)(.*)$"
-          "float,title:^(Open File)(.*)$"
-          "float,title:^(Open Folder)(.*)$"
-          "float,title:^(Save As)(.*)$"
-          "float,title:^(Select a File)(.*)$"
-          ''
-          immediate,title:.*\.exe
-          ''
-        ];
+
         windowrulev2 = [
-          "float, title:^(Picture(-| )in(-| )[Pp]icture)$"
+          "noblur, xwayland:1"
+          ''
+          float, class:^(blueberry\.py)$
+          ''
+          "float, class:^(steam)$"
+          "float, class:^(guifetch)$"
+          "float, class:^(pavucontrol)$"
+          "size 45%, class:^(pavucontrol)$"
+          "center, class:^(pavucontrol)$"
+          "float, class:^(org.pulseaudio.pavucontrol)$"
+          "size 45%, class:^(org.pulseaudio.pavucontrol)$"
+          "center, class:^(org.pulseaudio.pavucontrol)$"
+          "float, class:^(nm-connection-editor)$"
+          "size 45%, class:^(nm-connection-editor)$"
+          "center, class:^(nm-connection-editor)$"
+          ''
+          tile, class:^dev\.warp\.Warp$
+          ''
           ''
           float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
           ''
-          "immediate,class:(steam_app)"
-          "keepaspectratio, title:^(Picture(-| )in(-| )[Pp]icture)$"
-          "move 73% 72%,title:^(Picture(-| )in(-| )[Pp]icture)$ "
-          "noshadow,floating:0"
-          "pin, title:^(Picture(-| )in(-| )[Pp]icture)$"
-          "size 25%, title:^(Picture(-| )in(-| )[Pp]icture)$"
-          "tile, class:(dev.warp.Warp)"
+          ''
+          keepaspectratio, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
+          ''
+          ''
+          move 73% 72%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
+          ''
+          ''
+          size 25%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
+          ''
+          ''
+          float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
+          ''
+          ''
+          pin, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$
+          ''
+          "center, title:^(Open File)(.*)$"
+          "center, title:^(Select a File)(.*)$"
+          "center, title:^(Choose wallpaper)(.*)$"
+          "center, title:^(Open Folder)(.*)$"
+          "center, title:^(Save As)(.*)$"
+          "center, title:^(Library)(.*)$"
+          "center, title:^(File Upload)(.*)$"
+          "float, title:^(Open File)(.*)$"
+          "float, title:^(Select a File)(.*)$"
+          "float, title:^(Choose wallpaper)(.*)$"
+          "float, title:^(Open Folder)(.*)$"
+          "float, title:^(Save As)(.*)$"
+          "float, title:^(Library)(.*)$"
+          "float, title:^(File Upload)(.*)$"
+          ''
+          immediate, title:.*\.exe
+          ''
+          "immediate, class:^(steam_app)"
+          "noshadow, floating:0"
         ];
+
+        workspace = [
+          "special:special, gapsout:30"
+        ];
+
         layerrule = [
           "animation slide left, sideleft.*"
           "animation slide right, sideright.*"
           "blur, bar[0-9]*"
-          "blur, cheatsheet[0-9]*"
           "blur, barcorner.*"
+          "blur, cheatsheet[0-9]*"
           "blur, dock[0-9]*"
           "blur, gtk-layer-shell"
           "blur, indicator.*"
           "blur, indicator.*"
           "blur, launcher"
+          "blur, logout_dialog"
           "blur, notifications"
           "blur, osk[0-9]*"
           "blur, overview[0-9]*"
-          "blur, session"
-          "blur, shell:*"
+          "blur, session[0-9]*"
           "blur, sideleft[0-9]*"
           "blur, sideright[0-9]*"
           "ignorealpha 0.5, launcher"
@@ -466,7 +497,6 @@ in
           "ignorealpha 0.6, indicator.*"
           "ignorealpha 0.6, osk[0-9]*"
           "ignorealpha 0.6, overview[0-9]*"
-          "ignorealpha 0.6, shell:*"
           "ignorealpha 0.6, sideleft[0-9]*"
           "ignorealpha 0.6, sideright[0-9]*"
           "ignorezero, gtk-layer-shell"

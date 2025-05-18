@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation {
   pname = "illogical-impulse-oneui4-icons";
-  version = "unstable-2024-01-05";
+  version = "unstable-2024-05-07";
   
   src = fetchFromGitHub {
     owner = "end-4";
     repo = "OneUI4-Icons";
-    rev = "9ba21908f6e4a8f7c90fbbeb7c85f4975a4d4eb6";
-    sha256 = "sha256-f5t7VGPmD+CjZyWmhTtuhQjV87hCkKSCBksJzFa1x1Y=";
+    rev = "693095d45c67e6b48a9873e36af6283f05080e66";
+    sha256 = "sha256-VWgITEJQFbPqIbiGDfDeD0R74y9tCKEfjO/M/tcO94M=";
   };
   
   patchPhase = ''

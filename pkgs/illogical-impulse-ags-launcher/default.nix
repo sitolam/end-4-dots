@@ -29,6 +29,7 @@ stdenv.mkDerivation {
           materialyoucolor
           material-color-utilities
           pywayland
+          psutil
         ]))
       ]}
   '';
