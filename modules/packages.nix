@@ -31,6 +31,7 @@ in
         glib
         foot
         kitty
+        smile
         ydotool
 
         # themes
