@@ -28,6 +28,7 @@ in
       cliphist
       fuzzel
       grim
+      flameshot
       hyprpicker
       tesseract
       pavucontrol
