@@ -13,5 +13,6 @@ self: anyrun: ags: { ... }:
     ./hyprlock.nix
     ./theme.nix
     ./ags.nix
+    ./scripts.nix
   ];
 }
