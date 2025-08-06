@@ -28,7 +28,7 @@ in
       cliphist
       fuzzel
       grim
-      flameshot
+      (flameshot.override { enableWlrSupport = true; })
       hyprpicker
       tesseract
       pavucontrol
