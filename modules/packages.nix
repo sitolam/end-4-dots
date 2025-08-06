@@ -22,6 +22,7 @@ in
         # gui
         blueberry
         pkgs.nautilus
+        xfce.thunar
         yad
 
         # tools
