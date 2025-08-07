@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "sitolam";
     repo = "dots-hyprland";
-    rev = "ee5df3fc8e5cfd8d08abddfb3edca36f53b75846";
-    sha256 = "sha256-tY+EggivE9FdOZbp1aboM0BhQqzrvBBRlftWgPi/O4g=";
+    rev = "a41f1528c5f00ee118d0b9c9e333b4063d4aef12";
+    sha256 = "sha256-ZQvy8Gf5OWg/X9wUAAsF6pg9AmAJ0P3xYa9jc7mWSic=";
   };
 
   installPhase = ''
