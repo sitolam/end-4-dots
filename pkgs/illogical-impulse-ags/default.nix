@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "sitolam";
     repo = "dots-hyprland";
-    rev = "81da694b3497f49a1e7ea3b3a8806caa79676044";
-    sha256 = "sha256-rNNU6m/m0tTYlOcQjlBLM7SDLvtpuGjVHp3kAElXleo=";
+    rev = "a60e445a7faa8f2ce69d72b009b3bc48f953b426";
+    sha256 = "sha256-CDz4BKxuYK8+g/7Hq3rCP5PuPn5u67rUhgOuRw4gWDU=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
