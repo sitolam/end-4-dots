@@ -67,14 +67,13 @@ let
     '';
 
     update = pkgs.writeShellScriptBin "update" ''
-      env NH_FLAKE="$NH_FLAKE"
-      
-      kitty --title "update" sh -c "nh os switch; read -n 1 -p 'Press any key to continue...'"
+      nh os switch
       if [ $? -ne 0 ]; then
           notify-send "Error" "Failed to switch NixOS configuration."
       else
           notify-send "Success" "NixOS configuration switched successfully."
       fi
+      read -n 1 -p 'Press any key to continue...'"
       '';
 in
 
