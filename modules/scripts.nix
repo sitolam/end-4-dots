@@ -65,6 +65,17 @@ let
           playerctl play-pause
       fi
     '';
+
+    update = pkgs.writeShellScriptBin "update" ''
+      env NH_FLAKE="$NH_FLAKE"
+      
+      kitty --title "update" sh -c "nh os switch; read -n 1 -p 'Press any key to continue...'"
+      if [ $? -ne 0 ]; then
+          notify-send "Error" "Failed to switch NixOS configuration."
+      else
+          notify-send "Success" "NixOS configuration switched successfully."
+      fi
+      '';
 in
 
 {
@@ -72,5 +83,6 @@ in
   home.packages = with pkgs; [
     screenshot-ocr
     spotify-cava
+    update
   ];
 }
