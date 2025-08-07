@@ -67,6 +67,7 @@ let
     '';
 
     update = pkgs.writeShellScriptBin "update" ''
+      env NH_FLAKE="$NH_FLAKE"
       nh os switch
       if [ $? -ne 0 ]; then
           notify-send "Error" "Failed to switch NixOS configuration."
