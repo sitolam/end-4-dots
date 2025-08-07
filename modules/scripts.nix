@@ -73,7 +73,7 @@ let
       else
           notify-send "Success" "NixOS configuration switched successfully."
       fi
-      read -n 1 -p 'Press any key to continue...'"
+      read -n 1 -p 'Press any key to continue...'
       '';
 in
 
