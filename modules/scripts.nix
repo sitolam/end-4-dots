@@ -33,23 +33,11 @@ let
     # Remove the temporary screenshot
     rm "tmp.png"
     '';
-
-    update = pkgs.writeShellScriptBin "update" ''
-      env NH_FLAKE="$NH_FLAKE"
-      nh os switch
-      if [ $? -ne 0 ]; then
-          notify-send "Error" "Failed to switch NixOS configuration."
-      else
-          notify-send "Success" "NixOS configuration switched successfully."
-      fi
-      read -n 1 -p 'Press any key to continue...'
-      '';
 in
 
 {
 
   home.packages = with pkgs; [
     screenshot-ocr
-    update
   ];
 }
